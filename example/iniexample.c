@@ -18,6 +18,7 @@ int main(int argc, char * argv[])
     } else {
         status = parse_ini_file(argv[1]);
     }
+
     return status ;
 }
 
@@ -71,6 +72,8 @@ int parse_ini_file(char * ini_name)
     }
     iniparser_dump(ini, stderr);
 
+
+
     /* Get pizza attributes */
     printf("Pizza:\n");
 
@@ -96,6 +99,26 @@ int parse_ini_file(char * ini_name)
 
     d = iniparser_getdouble(ini, "wine:alcohol", -1.0);
     printf("Alcohol:   [%g]\n", d);
+
+
+    /* */
+    {
+        iniparser_set(ini, "pizza", NULL);
+        iniparser_unset(ini, "pizza:ham");
+        printf( "iniparser_set=%i\n", iniparser_set(ini, "pizza:aaa", "No"));
+
+        iniparser_set(ini, "ccc", NULL);
+        printf( "iniparser_set=%i\n", iniparser_set(ini, "ccc:ddd", "No"));
+
+        FILE *fp;  
+        fp = fopen("example-save.ini", "w");  
+        if (!fp) {  
+            /* */;  
+        }  
+        iniparser_dump_ini(ini, fp);  
+        fclose(fp);  
+
+    }
 
     iniparser_freedict(ini);
     return 0 ;
