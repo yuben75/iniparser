@@ -1,0 +1,13 @@
+*~
+Makefile
+lib_inc
+library
+obj
+out_*
+xxx.map
+Comm_Binary
+Comm_IntelHex
+Object
+Driver
+Utility
+
