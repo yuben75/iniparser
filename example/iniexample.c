@@ -107,8 +107,8 @@ int parse_ini_file(char * ini_name)
         iniparser_unset(ini, "pizza:ham");
         printf( "iniparser_set=%i\n", iniparser_set(ini, "pizza:aaa", "No"));
 
-        iniparser_set(ini, "ccc", NULL);
-        printf( "iniparser_set=%i\n", iniparser_set(ini, "ccc:ddd", "No"));
+        iniparser_set(ini, "system", NULL);
+        printf( "iniparser_set=%i\n", iniparser_set(ini, "system:static_ip", "192.168.1.24"));
 
         FILE *fp;  
         fp = fopen("example-save.ini", "w");  
